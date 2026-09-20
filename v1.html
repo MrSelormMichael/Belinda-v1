@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Belinda &amp; Bill — A Day of Love, Joy and Blessings</title>
+<title>Bill &amp; Belinda — A Day of Love, Joy and Blessings</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -29,8 +29,6 @@
     padding-bottom:env(safe-area-inset-bottom, 0px);
   }
 
-  /* The invitation keeps its light, printed-paper character in either
-     system theme; only the glass tuning shifts a touch. */
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
       --glass-fill:linear-gradient(152deg, rgba(255,255,255,.58), rgba(255,255,255,.22));
@@ -57,7 +55,6 @@
     -webkit-font-smoothing:antialiased;
   }
 
-  /* ---------- luminous backdrop ---------- */
   .field{position:fixed; inset:0; z-index:-2; overflow:hidden; background:var(--ivory)}
   .orb{
     position:absolute; border-radius:50%;
@@ -79,14 +76,12 @@
   @keyframes driftB{to{transform:translate3d(-11vmax,9vmax,0) scale(1.14)}}
   @keyframes driftC{to{transform:translate3d(10vmax,-8vmax,0) scale(1.08)}}
 
-  /* paper grain keeps the gradients from reading as plastic */
   .grain{
     position:fixed; inset:-50%; z-index:-1; pointer-events:none;
     opacity:.38; mix-blend-mode:multiply;
     background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23n)' opacity='.5'/></svg>");
   }
 
-  /* ---------- layout ---------- */
   .sheet{
     max-width:var(--measure);
     margin:0 auto;
@@ -95,7 +90,6 @@
   }
   section + section{margin-top:clamp(3.25rem,11vw,5.25rem)}
 
-  /* ---------- glass ---------- */
   .glass{
     position:relative;
     border-radius:28px;
@@ -106,7 +100,6 @@
     padding:clamp(1.6rem,6vw,2.5rem);
     overflow:hidden;
   }
-  /* specular edge: a 1px gradient hairline, brightest at the top-left */
   .glass::before{
     content:""; position:absolute; inset:0; border-radius:inherit; padding:1px;
     background:var(--glass-edge);
@@ -114,7 +107,6 @@
     -webkit-mask-composite:xor; mask-composite:exclude;
     pointer-events:none;
   }
-  /* a slow sheen travelling across the surface */
   .glass::after{
     content:""; position:absolute; top:-60%; left:-35%; width:45%; height:220%;
     background:linear-gradient(100deg, rgba(255,255,255,0), rgba(255,255,255,.5), rgba(255,255,255,0));
@@ -128,7 +120,6 @@
     100%{transform:rotate(14deg) translateX(320%); opacity:0}
   }
 
-  /* ---------- hero ---------- */
   .opening{
     font-family:"Jost", system-ui, sans-serif;
     font-weight:300; font-size:.78rem; letter-spacing:.22em;
@@ -165,7 +156,6 @@
   .flourish i{flex:1; height:1px; background:linear-gradient(90deg, transparent, var(--rule), transparent)}
   .flourish svg{width:11px; height:11px; color:var(--gold); flex:none}
 
-  /* ---------- blessing ---------- */
   .blessing p{
     margin:0;
     font-size:clamp(1.3rem,5.3vw,1.75rem);
@@ -175,12 +165,10 @@
     max-width:24ch; margin-inline:auto;
   }
 
-  /* ---------- invitation ---------- */
   .invite p{margin:0 auto; max-width:38ch}
   .invite .lead{color:var(--cocoa-soft)}
   .invite em{font-style:normal; color:var(--gold); white-space:nowrap}
 
-  /* ---------- details ---------- */
   .details{display:grid; gap:.9rem}
   .card{padding:clamp(1.35rem,5.5vw,1.8rem)}
   .card h2{
@@ -201,7 +189,6 @@
   }
   .pending{color:var(--cocoa-soft); font-style:italic}
 
-  /* ---------- closing ---------- */
   .closing p{
     margin:0 auto; max-width:26ch;
     font-size:clamp(1.18rem,4.6vw,1.45rem); font-style:italic; font-weight:300;
@@ -214,7 +201,6 @@
     color:var(--gold); line-height:1.6;
   }
 
-  /* ---------- one orchestrated arrival ---------- */
   .rise{opacity:0; transform:translateY(14px); filter:blur(6px)}
   .loaded .rise{
     animation:rise 1.25s cubic-bezier(.22,.61,.36,1) forwards;
@@ -258,9 +244,9 @@
     <p class="opening rise" style="--d:120ms">With joy in our hearts</p>
 
     <h1 class="names rise" style="--d:320ms">
-      <span>Belinda Adzogba</span>
-      <span class="amp">&amp;</span>
       <span>Bill Hamenoo</span>
+      <span class="amp">&amp;</span>
+      <span>Belinda Adzogba</span>
     </h1>
 
     <p class="tagline rise" style="--d:620ms">A day of love, joy and blessings.</p>
@@ -278,7 +264,7 @@
 
   <section class="invite reveal">
     <p class="lead">
-      Belinda Adzogba and Bill Hamenoo invite you to share in the celebration of
+      Bill Hamenoo and Belinda Adzogba invite you to share in the celebration of
       their <em>marriage ceremony</em> and the <em>naming ceremony</em> of their beloved baby.
     </p>
   </section>
@@ -310,7 +296,7 @@
 
   <section class="closing reveal">
     <p>Come and witness our union, and celebrate the beautiful blessing of our family.</p>
-    <p class="signoff">Belinda &amp; Bill</p>
+    <p class="signoff">Bill &amp; Belinda</p>
   </section>
 
 </main>
