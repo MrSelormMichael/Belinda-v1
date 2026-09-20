@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
-<title>A Day of Love, Joy and Blessings</title>
+<title>Belinda &amp; Bill — A Day of Love, Joy and Blessings</title>
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -258,6 +258,8 @@
     .card--date .date-row{flex-direction:column; gap:.9rem}
     .card--date .stack{align-items:center}
     .day{font-size:clamp(7rem,15vw,9.5rem)}
+    /* Dress code spans the full width beneath both columns */
+    .essentials > .card--dress{grid-column:1 / -1}
   }
 
   /* ================= action buttons ================= */
@@ -394,15 +396,15 @@
   <header class="hero">
     <p class="opening rise" style="--d:100ms">With joy in our hearts</p>
     <h1 class="names rise" style="--d:300ms">
-      <span data-fill="bride">[Bride&rsquo;s Name]</span>
+      <span data-fill="bride">Belinda Adzogba</span>
       <span class="amp">&amp;</span>
-      <span data-fill="groom">[Groom&rsquo;s Name]</span>
+      <span data-fill="groom">Bill Hamenoo</span>
     </h1>
     <p class="tagline rise" style="--d:600ms">A day of love, joy and blessings.</p>
   </header>
 
-  <!-- ===== date · time · venue ===== -->
-  <section class="essentials" aria-label="Date, time and venue">
+  <!-- ===== date · time · venue · dress code ===== -->
+  <section class="essentials" aria-label="Date, time, venue and dress code">
 
     <article class="glass card card--date sheen rise" style="--d:820ms">
       <h2 class="label">
@@ -431,12 +433,20 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></svg>
         Venue
       </h2>
-      <p class="venue-name gold" id="venueName">[Venue name]</p>
-      <p class="venue-addr" id="venueAddr">[Street address, City]</p>
+      <p class="venue-name gold" id="venueName">Gbawe Top Base</p>
+      <p class="venue-addr" id="venueAddr" hidden></p>
+    </article>
+
+    <article class="glass card card--dress rise" style="--d:1300ms">
+      <h2 class="label">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v1h2.5a1.5 1.5 0 0 1 1.5 1.5V19a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8.5A1.5 1.5 0 0 1 6.5 7H9V6a3 3 0 0 1 3-3Z"/><path d="M9 12.5h6"/></svg>
+        Dress code
+      </h2>
+      <p class="venue-name gold">White</p>
     </article>
   </section>
 
-  <div class="actions rise" style="--d:1300ms">
+  <div class="actions rise" style="--d:1440ms">
     <button type="button" class="btn btn--primary" id="addCal">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4M12 13v4M10 15h4"/></svg>
       Add to calendar
@@ -464,7 +474,7 @@
     </div>
 
     <p class="lead">
-      <span data-fill="bride">[Bride&rsquo;s Name]</span> and <span data-fill="groom">[Groom&rsquo;s Name]</span>
+      <span data-fill="bride">Belinda Adzogba</span> and <span data-fill="groom">Bill Hamenoo</span>
       invite you to share in the celebration of their <b>marriage ceremony</b>
       and the <b>naming ceremony</b> of their beloved baby.
     </p>
@@ -484,7 +494,7 @@
   <!-- ===== closing ===== -->
   <footer class="closing reveal">
     <p>Come and witness our union, and celebrate the beautiful blessing of our family.</p>
-    <p class="signoff"><span data-fill="brideShort">[Bride]</span> &amp; <span data-fill="groomShort">[Groom]</span></p>
+    <p class="signoff"><span data-fill="brideShort">Belinda</span> &amp; <span data-fill="groomShort">Bill</span></p>
   </footer>
 
 </main>
@@ -494,13 +504,13 @@
    EDIT THIS BLOCK — everything on the page is filled from here.
    ===================================================================== */
 const EVENT = {
-  bride:       "[Bride's Name]",
-  groom:       "[Groom's Name]",
-  brideShort:  "[Bride]",          // first names, used in the sign-off
-  groomShort:  "[Groom]",
+  bride:       "Belinda Adzogba",
+  groom:       "Bill Hamenoo",
+  brideShort:  "Belinda",          // first names, used in the sign-off
+  groomShort:  "Bill",
 
-  venueName:    "[Venue name]",    // leave "" to show "To be announced"
-  venueAddress: "[Street address, City]",
+  venueName:    "Gbawe Top Base",  // leave "" to show "To be announced"
+  venueAddress: "",
   mapsUrl:      "",                // paste a Google Maps share link (optional)
 
   start: "20261025T100000",        // 25 Oct 2026, 10:00 (local time of whoever opens it)
@@ -545,7 +555,7 @@ const title = isPlaceholder(EVENT.bride)
   ? 'Marriage & Naming Ceremony'
   : `${EVENT.bride} & ${EVENT.groom}: Marriage & Naming Ceremony`;
 const where = venueReady ? [EVENT.venueName, EVENT.venueAddress].filter(Boolean).join(', ') : '';
-const about = 'A day of love, joy and blessings. Marriage ceremony and naming ceremony.';
+const about = 'A day of love, joy and blessings. Marriage ceremony and naming ceremony. Dress code: white.';
 
 document.getElementById('gcal').href =
   'https://calendar.google.com/calendar/render?action=TEMPLATE' +
