@@ -281,7 +281,6 @@
     font-size:clamp(1.5rem,6.5vw,2rem);
   }
 
-  /* Secondary countdown — deliberately quiet, sits below the date */
   .countdown{
     margin:.85rem 0 0;
     padding-top:.7rem;
@@ -331,6 +330,8 @@
       margin-top:1.1rem;
       padding-top:.85rem;
     }
+    /* Dress code spans the full width beneath both columns */
+    .essentials > .card--dress{grid-column:1 / -1}
   }
 
   /* ================= action buttons ================= */
@@ -509,7 +510,7 @@
     <p class="tagline rise" style="--d:600ms">A day of love, joy and blessings.</p>
   </header>
 
-  <section class="essentials" aria-label="Date, time and venue">
+  <section class="essentials" aria-label="Date, time, venue and dress code">
 
     <article class="glass card card--date rise" style="--d:820ms">
       <h2 class="label">
@@ -542,9 +543,17 @@
       <p class="venue-name gold" id="venueName">Gbawe Top Base</p>
       <p class="venue-addr" id="venueAddr" hidden></p>
     </article>
+
+    <article class="glass card card--dress rise" style="--d:1280ms">
+      <h2 class="label">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v1h2.5a1.5 1.5 0 0 1 1.5 1.5V19a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8.5A1.5 1.5 0 0 1 6.5 7H9V6a3 3 0 0 1 3-3Z"/><path d="M9 12.5h6"/></svg>
+        Dress code
+      </h2>
+      <p class="venue-name gold">White</p>
+    </article>
   </section>
 
-  <div class="actions rise" style="--d:1300ms">
+  <div class="actions rise" style="--d:1420ms">
     <button type="button" class="btn btn--primary" id="addCal">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4M12 13v4M10 15h4"/></svg>
       Add to calendar
@@ -606,14 +615,12 @@ const EVENT = {
   groomShort:  "Bill",
 
   venueName:    "Gbawe Top Base",
-  venueAddress: "",                // leave "" — no street address provided
-  mapsUrl:      "",                // optional Google Maps share link
+  venueAddress: "",
+  mapsUrl:      "",
 
-  start: "20261025T100000",        // 25 Oct 2026, 10:00 local
+  start: "20261025T100000",
   end:   "20261025T140000",
 
-  /* Background photos — files sit next to this page.
-     Remove any entry you don't have; failures are silent. */
   photos: [
     "slide1.jpg",
     "slide2.jpg",
@@ -631,7 +638,7 @@ document.querySelectorAll('[data-fill]').forEach(el => {
 });
 document.title = isPlaceholder(EVENT.bride) ? document.title : `${EVENT.bride} & ${EVENT.groom}`;
 
-/* ---------- monogram (surname initials, falls back to first-name initials) ---------- */
+/* ---------- monogram ---------- */
 (function(){
   const last = s => (s || "").trim().split(/\s+/).pop() || "";
   const initials = [
@@ -672,7 +679,7 @@ const title = isPlaceholder(EVENT.bride)
   ? 'Marriage & Naming Ceremony'
   : `${EVENT.bride} & ${EVENT.groom}: Marriage & Naming Ceremony`;
 const where = venueReady ? [EVENT.venueName, EVENT.venueAddress].filter(Boolean).join(', ') : '';
-const about = 'A day of love, joy and blessings. Marriage ceremony and naming ceremony.';
+const about = 'A day of love, joy and blessings. Marriage ceremony and naming ceremony. Dress code: white.';
 
 document.getElementById('gcal').href =
   'https://calendar.google.com/calendar/render?action=TEMPLATE' +
@@ -697,15 +704,13 @@ document.getElementById('addCal').addEventListener('click', () => {
   setTimeout(() => URL.revokeObjectURL(url), 2000);
 });
 
-/* ---------- countdown (quiet, secondary) ---------- */
+/* ---------- countdown ---------- */
 (function countdown(){
-  // Oct 25 2026, 10:00 local time — same moment the calendar event uses.
   const target = new Date(2026, 9, 25, 10, 0, 0).getTime();
   const el = document.getElementById('countdown');
 
   function tick(){
-    const now = Date.now();
-    const diff = target - now;
+    const diff = target - Date.now();
     if (diff <= 0){
       el.hidden = false;
       el.innerHTML = 'Today is the day';
@@ -724,7 +729,7 @@ document.getElementById('addCal').addEventListener('click', () => {
   setInterval(tick, 60_000);
 })();
 
-/* ---------- pointer-following specular highlight on glass ---------- */
+/* ---------- pointer-following specular highlight ---------- */
 (function specular(){
   const cards = document.querySelectorAll('.glass, .btn');
   const onMove = e => {
@@ -736,7 +741,7 @@ document.getElementById('addCal').addEventListener('click', () => {
   cards.forEach(el => el.addEventListener('pointermove', onMove, {passive:true}));
 })();
 
-/* ---------- backdrop: photos if provided, otherwise bokeh scenes ---------- */
+/* ---------- backdrop ---------- */
 const SCENES = [
   { seed:7, count:15, min:9, max:26,
     base:'radial-gradient(120% 90% at 18% 8%,#FBE6B4,transparent 62%),radial-gradient(100% 80% at 92% 92%,#DDA95A,transparent 62%),linear-gradient(160deg,#EFD094,#C99A55)',
@@ -783,7 +788,6 @@ const loadImg = src => new Promise(res => {
   im.src = src;
 });
 
-/* Sample dominant hue of the active slide and softly tint the glass. */
 function dominantTint(img, cb){
   try{
     const c = document.createElement('canvas');
@@ -796,7 +800,6 @@ function dominantTint(img, cb){
     for (let i=0;i<d.length;i+=4){
       const R=d[i],G=d[i+1],B=d[i+2],A=d[i+3];
       if (A < 200) continue;
-      // ignore near-black/white to avoid muddy average
       const lum = 0.2126*R + 0.7152*G + 0.0722*B;
       if (lum < 25 || lum > 240) continue;
       r+=R; g+=G; b+=B; count++;
@@ -833,7 +836,6 @@ function dominantTint(img, cb){
 
   function updateTint(index){
     if (!usingPhotos) return;
-    // load a lightweight version of the same file to sample color
     const im = new Image();
     im.crossOrigin = 'anonymous';
     im.onload = () => dominantTint(im, rgb => {
