@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
-<title>Belinda &amp; Bill — A Day of Love, Joy and Blessings</title>
+<title>Bill &amp; Belinda — A Day of Love, Joy and Blessings</title>
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
     --cocoa-soft:rgba(62,50,37,.72);
     --rule:rgba(169,133,63,.4);
 
-    --bg-blur:14px;               /* how soft the photo backdrop is */
+    --bg-blur:14px;
     --veil-top:rgba(251,248,242,.62);
     --veil-mid:rgba(251,248,242,.30);
     --veil-bot:rgba(251,248,242,.58);
@@ -36,8 +36,6 @@
     padding-bottom:env(safe-area-inset-bottom, 0px);
   }
 
-  /* The invitation stays light and paper-like in either system theme;
-     the glass just gets a touch more body so it holds up over darker photos. */
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
       --glass-fill:linear-gradient(155deg, rgba(255,255,255,.66), rgba(255,255,255,.28));
@@ -63,7 +61,6 @@
     -webkit-font-smoothing:antialiased;
   }
 
-  /* ================= photo backdrop ================= */
   .stage{position:fixed; inset:0; z-index:-4; overflow:hidden; background:#EFE4CF}
   .slide{
     position:absolute; inset:-8%;
@@ -86,7 +83,6 @@
   }
   .disc{position:absolute; border-radius:50%; transform:translate(-50%,-50%)}
 
-  /* ivory wash keeps text readable whatever photo is behind it */
   .veil{
     position:fixed; inset:0; z-index:-3; pointer-events:none;
     background:
@@ -99,7 +95,6 @@
     background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23n)' opacity='.5'/></svg>");
   }
 
-  /* invitation-card border, drawn over everything */
   .frame{
     position:fixed; inset:10px; z-index:20; pointer-events:none;
     border:1px solid rgba(169,133,63,.55);
@@ -111,7 +106,6 @@
     border-radius:21px;
   }
 
-  /* ================= layout ================= */
   .sheet{
     max-width:var(--measure);
     margin:0 auto;
@@ -123,7 +117,6 @@
   }
   @media (min-width:760px){ :root{--measure:52rem} }
 
-  /* ================= glass ================= */
   .glass{
     position:relative;
     border-radius:30px;
@@ -153,7 +146,6 @@
     100%{transform:rotate(14deg) translateX(340%); opacity:0}
   }
 
-  /* ================= hero ================= */
   .hero{position:relative; isolation:isolate}
   .hero::before{
     content:""; position:absolute; inset:-14% -18%; z-index:-1;
@@ -188,7 +180,6 @@
     color:var(--cocoa);
   }
 
-  /* ================= event details (the important part) ================= */
   .essentials{display:grid; gap:.9rem; text-align:left}
   .card{padding:clamp(1.25rem,5vw,1.7rem) clamp(1.4rem,5.5vw,1.9rem)}
 
@@ -258,11 +249,9 @@
     .card--date .date-row{flex-direction:column; gap:.9rem}
     .card--date .stack{align-items:center}
     .day{font-size:clamp(7rem,15vw,9.5rem)}
-    /* Dress code spans the full width beneath both columns */
     .essentials > .card--dress{grid-column:1 / -1}
   }
 
-  /* ================= action buttons ================= */
   .actions{display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center}
   .btn{
     flex:1 1 15rem;
@@ -299,7 +288,6 @@
     text-decoration-color:var(--rule);
   }
 
-  /* ================= invitation card ================= */
   .invitation{padding:clamp(2.3rem,8vw,3.4rem) clamp(1.6rem,7vw,3rem); max-width:40rem; margin-inline:auto; width:100%}
   .corner{
     position:absolute; width:38px; height:38px; color:var(--gold);
@@ -341,7 +329,6 @@
   }
   .ceremonies svg{width:20px; height:20px; color:var(--gold); fill:none; stroke:currentColor; stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round}
 
-  /* ================= closing ================= */
   .closing{position:relative; isolation:isolate; padding-bottom:.5rem}
   .closing::before{
     content:""; position:absolute; inset:-25% -18%; z-index:-1;
@@ -359,7 +346,6 @@
     color:var(--gold-deep);
   }
 
-  /* ================= motion ================= */
   .js .rise{opacity:0; transform:translateY(14px); filter:blur(6px)}
   .js.loaded .rise{
     animation:rise 1.2s cubic-bezier(.22,.61,.36,1) forwards;
@@ -392,18 +378,16 @@
 
 <main class="sheet">
 
-  <!-- ===== names ===== -->
   <header class="hero">
     <p class="opening rise" style="--d:100ms">With joy in our hearts</p>
     <h1 class="names rise" style="--d:300ms">
-      <span data-fill="bride">Belinda Adzogba</span>
-      <span class="amp">&amp;</span>
       <span data-fill="groom">Bill Hamenoo</span>
+      <span class="amp">&amp;</span>
+      <span data-fill="bride">Belinda Adzogba</span>
     </h1>
     <p class="tagline rise" style="--d:600ms">A day of love, joy and blessings.</p>
   </header>
 
-  <!-- ===== date · time · venue · dress code ===== -->
   <section class="essentials" aria-label="Date, time, venue and dress code">
 
     <article class="glass card card--date sheen rise" style="--d:820ms">
@@ -458,7 +442,6 @@
     <a class="textlink" id="gcal" href="#" target="_blank" rel="noopener">Or open in Google Calendar</a>
   </div>
 
-  <!-- ===== the invitation ===== -->
   <section class="glass invitation reveal">
     <svg class="corner tl" viewBox="0 0 40 40" aria-hidden="true"><path d="M2 38V14Q2 2 14 2h24"/><path d="M8 38V17Q8 8 17 8h21"/><circle cx="14" cy="14" r="1.6" fill="currentColor" stroke="none"/></svg>
     <svg class="corner tr" viewBox="0 0 40 40" aria-hidden="true"><path d="M2 38V14Q2 2 14 2h24"/><path d="M8 38V17Q8 8 17 8h21"/><circle cx="14" cy="14" r="1.6" fill="currentColor" stroke="none"/></svg>
@@ -474,7 +457,7 @@
     </div>
 
     <p class="lead">
-      <span data-fill="bride">Belinda Adzogba</span> and <span data-fill="groom">Bill Hamenoo</span>
+      <span data-fill="groom">Bill Hamenoo</span> and <span data-fill="bride">Belinda Adzogba</span>
       invite you to share in the celebration of their <b>marriage ceremony</b>
       and the <b>naming ceremony</b> of their beloved baby.
     </p>
@@ -491,43 +474,37 @@
     </ul>
   </section>
 
-  <!-- ===== closing ===== -->
   <footer class="closing reveal">
     <p>Come and witness our union, and celebrate the beautiful blessing of our family.</p>
-    <p class="signoff"><span data-fill="brideShort">Belinda</span> &amp; <span data-fill="groomShort">Bill</span></p>
+    <p class="signoff"><span data-fill="groomShort">Bill</span> &amp; <span data-fill="brideShort">Belinda</span></p>
   </footer>
 
 </main>
 
 <script>
-/* =====================================================================
-   EDIT THIS BLOCK — everything on the page is filled from here.
-   ===================================================================== */
 const EVENT = {
   bride:       "Belinda Adzogba",
   groom:       "Bill Hamenoo",
-  brideShort:  "Belinda",          // first names, used in the sign-off
+  brideShort:  "Belinda",
   groomShort:  "Bill",
 
-  venueName:    "Gbawe Top Base",  // leave "" to show "To be announced"
+  venueName:    "Gbawe Top Base",
   venueAddress: "",
-  mapsUrl:      "",                // paste a Google Maps share link (optional)
+  mapsUrl:      "",
 
-  start: "20261025T100000",        // 25 Oct 2026, 10:00 (local time of whoever opens it)
-  end:   "20261025T140000",        // calendar end time; change if you like
+  start: "20261025T100000",
+  end:   "20261025T140000",
 
-  /* Background photos: add as many as you like. Relative paths work when the
-     files sit next to this page, e.g. ["photos/1.jpg", "photos/2.jpg"].
-     Leave empty to use the built-in soft bokeh scenes. */
   photos: []
 };
 
-/* ---------- fill text ---------- */
 const isPlaceholder = s => !s || /^\[/.test(s.trim());
 document.querySelectorAll('[data-fill]').forEach(el => {
   const v = EVENT[el.dataset.fill]; if (v) el.textContent = v;
 });
-document.title = isPlaceholder(EVENT.bride) ? document.title : `${EVENT.bride} & ${EVENT.groom}`;
+document.title = isPlaceholder(EVENT.groom)
+  ? document.title
+  : `${EVENT.groom} & ${EVENT.bride}`;
 
 const vName = document.getElementById('venueName');
 const vAddr = document.getElementById('venueAddr');
@@ -540,7 +517,6 @@ if (!EVENT.venueName.trim()) {
   vAddr.hidden = !EVENT.venueAddress;
 }
 
-/* ---------- directions ---------- */
 const dirs = document.getElementById('dirs');
 const venueReady = EVENT.venueName.trim() && !isPlaceholder(EVENT.venueName);
 if (EVENT.mapsUrl) { dirs.href = EVENT.mapsUrl; dirs.hidden = false; }
@@ -550,10 +526,9 @@ else if (venueReady) {
   dirs.hidden = false;
 }
 
-/* ---------- calendar ---------- */
-const title = isPlaceholder(EVENT.bride)
+const title = isPlaceholder(EVENT.groom)
   ? 'Marriage & Naming Ceremony'
-  : `${EVENT.bride} & ${EVENT.groom}: Marriage & Naming Ceremony`;
+  : `${EVENT.groom} & ${EVENT.bride}: Marriage & Naming Ceremony`;
 const where = venueReady ? [EVENT.venueName, EVENT.venueAddress].filter(Boolean).join(', ') : '';
 const about = 'A day of love, joy and blessings. Marriage ceremony and naming ceremony. Dress code: white.';
 
@@ -580,28 +555,19 @@ document.getElementById('addCal').addEventListener('click', () => {
   setTimeout(() => URL.revokeObjectURL(url), 2000);
 });
 
-/* ---------- backdrop: photos if provided, otherwise bokeh scenes ---------- */
 const SCENES = [
-  { // golden hour
-    seed:7, count:15, min:9, max:26,
+  { seed:7, count:15, min:9, max:26,
     base:'radial-gradient(120% 90% at 18% 8%,#FBE6B4,transparent 62%),radial-gradient(100% 80% at 92% 92%,#DDA95A,transparent 62%),linear-gradient(160deg,#EFD094,#C99A55)',
-    colors:['255,246,220','255,226,160','240,190,110']
-  },
-  { // blush garden
-    seed:23, count:14, min:10, max:28,
+    colors:['255,246,220','255,226,160','240,190,110'] },
+  { seed:23, count:14, min:10, max:28,
     base:'radial-gradient(90% 70% at 82% 18%,#FAE2DC,transparent 62%),radial-gradient(80% 70% at 8% 92%,#CBD2A8,transparent 64%),linear-gradient(170deg,#F4D5CE,#E2B4AC)',
-    colors:['255,238,234','247,190,188','206,214,168']
-  },
-  { // candlelit
-    seed:41, count:22, min:5, max:16,
+    colors:['255,238,234','247,190,188','206,214,168'] },
+  { seed:41, count:22, min:5, max:16,
     base:'radial-gradient(70% 60% at 50% 42%,#EBC078,transparent 66%),linear-gradient(180deg,#B8863F,#6E4A22)',
-    colors:['255,232,176','255,208,124','255,247,228']
-  },
-  { // ivory silk
-    seed:59, count:10, min:12, max:30,
+    colors:['255,232,176','255,208,124','255,247,228'] },
+  { seed:59, count:10, min:12, max:30,
     base:'radial-gradient(70% 50% at 30% 30%,rgba(255,255,255,.85),transparent 70%),linear-gradient(115deg,#FBF4E6 0%,#EBD9B9 38%,#FAF0DD 62%,#E4CBA0 100%)',
-    colors:['255,255,255','246,226,192']
-  }
+    colors:['255,255,255','246,226,192'] }
 ];
 
 const rng = seed => () => (seed = (seed * 16807) % 2147483647) / 2147483647;
@@ -660,7 +626,6 @@ const loadImg = src => new Promise(res => {
   });
 })();
 
-/* ---------- entrance + scroll reveal ---------- */
 document.documentElement.classList.add('loaded');
 const reveals = document.querySelectorAll('.reveal');
 if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)){
