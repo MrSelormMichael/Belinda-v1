@@ -73,7 +73,6 @@
   }
   .skip:focus{left:0}
 
-  /* ================= photo backdrop ================= */
   .stage{position:fixed; inset:0; z-index:-4; overflow:hidden; background:#EFE4CF}
   .slide{
     position:absolute; inset:-8%;
@@ -136,7 +135,6 @@
     box-shadow:0 0 0 1px rgba(169,133,63,.35);
   }
 
-  /* ================= layout ================= */
   .sheet{
     max-width:var(--measure);
     margin:0 auto;
@@ -148,7 +146,6 @@
   }
   @media (min-width:760px){ :root{--measure:52rem} }
 
-  /* ================= glass ================= */
   .glass{
     position:relative;
     border-radius:30px;
@@ -192,7 +189,6 @@
     100%{transform:rotate(14deg) translateX(340%); opacity:0}
   }
 
-  /* ================= hero ================= */
   .hero{position:relative; isolation:isolate}
   .hero::before{
     content:""; position:absolute; inset:-14% -18%; z-index:-1;
@@ -240,7 +236,6 @@
     color:var(--cocoa);
   }
 
-  /* ================= event details ================= */
   .essentials{display:grid; gap:.9rem; text-align:left}
   .card{padding:clamp(1.25rem,5vw,1.7rem) clamp(1.4rem,5.5vw,1.9rem)}
 
@@ -333,7 +328,6 @@
     .essentials > .card--dress{grid-column:1 / -1}
   }
 
-  /* ================= action buttons ================= */
   .actions{display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center}
   .btn{
     flex:1 1 15rem;
@@ -379,7 +373,6 @@
     text-decoration-color:var(--rule);
   }
 
-  /* ================= invitation card ================= */
   .invitation{padding:clamp(2.3rem,8vw,3.4rem) clamp(1.6rem,7vw,3rem); max-width:40rem; margin-inline:auto; width:100%}
   .corner{
     position:absolute; width:38px; height:38px; color:var(--gold);
@@ -421,7 +414,6 @@
   }
   .ceremonies svg{width:20px; height:20px; color:var(--gold); fill:none; stroke:currentColor; stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round}
 
-  /* ================= closing ================= */
   .closing{position:relative; isolation:isolate; padding-bottom:.5rem}
   .closing::before{
     content:""; position:absolute; inset:-25% -18%; z-index:-1;
@@ -439,7 +431,6 @@
     color:var(--gold-deep);
   }
 
-  /* ================= motion ================= */
   .js .rise{opacity:0; transform:translateY(14px); filter:blur(6px)}
   .js.loaded .rise{
     animation:rise 1.2s cubic-bezier(.22,.61,.36,1) forwards;
@@ -517,10 +508,10 @@
         Date
       </h2>
       <div class="date-row">
-        <p class="day">25</p>
+        <p class="day">15</p>
         <div class="stack">
           <p class="weekday">Sunday</p>
-          <p class="month">October 2026</p>
+          <p class="month">November 2026</p>
         </div>
       </div>
       <p class="countdown" id="countdown" aria-live="polite" hidden></p>
@@ -531,7 +522,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
         Time
       </h2>
-      <p class="time gold">10:00<small>AM</small></p>
+      <p class="time gold">11:00<small>AM</small></p>
     </article>
 
     <article class="glass card rise" style="--d:1140ms">
@@ -570,7 +561,7 @@
     <svg class="corner bl" viewBox="0 0 40 40" aria-hidden="true"><path d="M2 38V14Q2 2 14 2h24"/><path d="M8 38V17Q8 8 17 8h21"/><circle cx="14" cy="14" r="1.6" fill="currentColor" stroke="none"/></svg>
     <svg class="corner br" viewBox="0 0 40 40" aria-hidden="true"><path d="M2 38V14Q2 2 14 2h24"/><path d="M8 38V17Q8 8 17 8h21"/><circle cx="14" cy="14" r="1.6" fill="currentColor" stroke="none"/></svg>
 
-    <p class="blessing">A day of love, joy and blessings. Two hearts become one, and a precious gift receives a name.</p>
+    <p class="blessing">A day of love, joy and blessings. Two hearts become one in a beautiful union.</p>
 
     <div class="flourish" aria-hidden="true">
       <i></i>
@@ -580,18 +571,13 @@
 
     <p class="lead">
       With joy in our hearts, <b>Bill Hamenoo</b> and <b>Belinda Adzogba</b>
-      invite you to share in the celebration of their <b>marriage ceremony</b>
-      and the <b>naming ceremony</b> of their beloved baby.
+      invite you to share in the celebration of their <b>marriage ceremony</b>.
     </p>
 
     <ul class="ceremonies">
       <li>
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="13" r="5.5"/><circle cx="15.5" cy="13" r="5.5"/><path d="M6.5 4.5 8.5 7l2-2.5"/></svg>
         Marriage ceremony
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/><path d="M19 16v4M17 18h4"/></svg>
-        Naming ceremony
       </li>
     </ul>
   </section>
@@ -617,8 +603,8 @@ const EVENT = {
   venueAddress: "",
   mapsUrl:      "",
 
-  start: "20261025T100000",
-  end:   "20261025T140000",
+  start: "20261115T110000",
+  end:   "20261115T150000",
 
   photos: [
     "slide1.jpg",
@@ -677,10 +663,10 @@ else if (venueReady) {
 
 /* ---------- calendar ---------- */
 const title = isPlaceholder(EVENT.groom)
-  ? 'Marriage & Naming Ceremony'
-  : `${EVENT.groom} & ${EVENT.bride}: Marriage & Naming Ceremony`;
+  ? 'Marriage Ceremony'
+  : `${EVENT.groom} & ${EVENT.bride}: Marriage Ceremony`;
 const where = venueReady ? [EVENT.venueName, EVENT.venueAddress].filter(Boolean).join(', ') : '';
-const about = 'A day of love, joy and blessings. Marriage ceremony and naming ceremony. Dress code: white.';
+const about = 'A day of love, joy and blessings. Marriage ceremony. Dress code: white.';
 
 document.getElementById('gcal').href =
   'https://calendar.google.com/calendar/render?action=TEMPLATE' +
@@ -707,7 +693,7 @@ document.getElementById('addCal').addEventListener('click', () => {
 
 /* ---------- countdown ---------- */
 (function countdown(){
-  const target = new Date(2026, 9, 25, 10, 0, 0).getTime();
+  const target = new Date(2026, 10, 15, 11, 0, 0).getTime();
   const el = document.getElementById('countdown');
 
   function tick(){
