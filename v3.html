@@ -571,13 +571,13 @@
 
     <p class="lead">
       With joy in our hearts, <b>Bill Hamenoo</b> and <b>Belinda Adzogba</b>
-      invite you to share in the celebration of their <b>marriage ceremony</b>.
+      invite you to share in the celebration of their <b>Engagement ceremony</b>.
     </p>
 
     <ul class="ceremonies">
       <li>
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="13" r="5.5"/><circle cx="15.5" cy="13" r="5.5"/><path d="M6.5 4.5 8.5 7l2-2.5"/></svg>
-        Marriage ceremony
+        Engagement ceremony
       </li>
     </ul>
   </section>
@@ -663,10 +663,10 @@ else if (venueReady) {
 
 /* ---------- calendar ---------- */
 const title = isPlaceholder(EVENT.groom)
-  ? 'Marriage Ceremony'
-  : `${EVENT.groom} & ${EVENT.bride}: Marriage Ceremony`;
+  ? 'Engagement Ceremony'
+  : `${EVENT.groom} & ${EVENT.bride}: Engagement Ceremony`;
 const where = venueReady ? [EVENT.venueName, EVENT.venueAddress].filter(Boolean).join(', ') : '';
-const about = 'A day of love, joy and blessings. Marriage ceremony. Dress code: white.';
+const about = 'A day of love, joy and blessings. Engagement ceremony. Dress code: white.';
 
 document.getElementById('gcal').href =
   'https://calendar.google.com/calendar/render?action=TEMPLATE' +
